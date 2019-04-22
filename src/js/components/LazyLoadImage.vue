@@ -4,6 +4,10 @@
       class="c-image__item"
       :data-url="source"
       :alt="alt"
+      :style="{
+        width: (width ? width + 'px' : 'auto'),
+        height: (height ? height + 'px' : 'auto')
+      }"
     >
   </figure>
 </template>
@@ -18,6 +22,14 @@ export default {
     },
     alt: {
       type: String,
+      required: false
+    },
+    width: {
+      type: Number,
+      required: false
+    },
+    height: {
+      type: Number,
       required: false
     }
   }

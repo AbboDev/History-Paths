@@ -5,7 +5,12 @@
         <div class="o-container__row o-container__row--gap-of-15px o-container__row--vertical-align">
           <div class="o-container__row__column o-container__row__column--5@sm">
             <h1>{{ title }} #{{ $route.params.id }}</h1>
-            <lazy-load-image :source="'https://via.placeholder.com/500x700.png/acbdba/1b2021?text=' + title" :alt="title"></lazy-load-image>
+            <lazy-load-image
+              :source="'https://via.placeholder.com/500x700.png/acbdba/1b2021?text=' + title + ' ' + $route.params.id"
+              :alt="title"
+              :width="500"
+              :height="700"
+            />
           </div>
           <div class="o-container__row__column o-container__row__column--7@sm">
             <h3>{{ subtitle }}</h3>
