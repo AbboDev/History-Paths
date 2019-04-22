@@ -1,0 +1,49 @@
+// /**
+//  *
+//  */
+
+.#{map-get($bemit, 'object')}box {
+  $box: &;
+
+  @extend %full-block;
+
+  height: 100%;
+
+  & > &__content {
+    @extend %full-block;
+
+    height: 100%;
+  }
+
+  &--ratio {
+    height: 0px;
+    padding-top: 100%;
+
+    @each $arv in $aspect-ratio-values {
+      @if ($arv == $aspect-ratio-values-default) {
+
+      }
+    }
+
+    & > &__content {
+      @extend %fit-parent-absolute;
+    }
+  }
+
+  &--shadow {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+
+      box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    & > * {
+      position: static;
+    }
+  }
+}

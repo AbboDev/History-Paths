@@ -1,0 +1,13 @@
+// /**
+// 	*
+// 	*/
+
+.#{map-get($bemit, 'object')}header {
+  $_header: &;
+
+  @extend %full-block;
+
+  width: 100%;
+  height: if(map-has-key($header, 'height'), #{map-get($header, 'height')}px, 'auto');
+  padding: #{$padding}px #{$padding * 2}px;
+}

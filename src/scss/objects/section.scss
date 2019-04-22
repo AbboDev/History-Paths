@@ -1,0 +1,9 @@
+// /**
+//  *
+//  */
+
+.#{map-get($bemit, 'object')}section {
+  $section: &;
+
+  @extend %full-block;
+}

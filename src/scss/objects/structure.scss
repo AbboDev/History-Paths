@@ -1,0 +1,115 @@
+// /**
+//  *
+//  */
+
+.#{map-get($bemit, 'object')}container {
+  $container: &;
+
+  @extend %full-block;
+
+  margin: 0px auto;
+
+  @each $break-point in $break-points {
+    &--boxed-#{nth($break-point, 2) - 1}px {
+      // @include break-point(#{nth($break-point, 2)}) {
+        max-width: #{nth($break-point, 2) - 1}px;
+      // }
+    }
+  }
+
+  &--full {
+    max-width: 100%;
+  }
+
+  & + #{&} {
+    margin-top: #{$margin * 2}px;
+  }
+
+  &--spaced {
+    margin-top: #{$margin * 2}px;
+    margin-bottom: #{$margin * 2}px;
+  }
+
+  &--padded {
+    padding-left: #{$padding * 2}px;
+    padding-right: #{$padding * 2}px;
+  }
+
+  &__row {
+    $row: &;
+
+    font-size: 0px;
+    @extend %full-block;
+
+    @each $bp in $break-points {
+      @include bemit-break-point($bp) {
+        max-width: #{nth($bp, 2)}px;
+      }
+    }
+
+    &--flex {
+      @include equal-heights();
+    }
+
+    &__column {
+      $column: &;
+
+      width: 100%;
+
+      font-size: initial;
+      vertical-align: top;
+      display: inline-block;
+      word-wrap: break-word;
+
+      #{$row}--vertical-align & {
+        vertical-align: middle;
+      }
+
+      @each $cfr in $columns-for-row {
+        @if ($cfr == $columns-for-row-default) {
+          @for $i from 1 through $cfr {
+            &--#{$i} {
+              $width: 100% / $cfr * $i;
+              width: $width;
+
+              @each $bp in $break-points {
+                @include bemit-break-point($bp) {
+                  width: $width;
+                }
+              }
+            }
+          }
+        }
+
+        #{$row}--group-by-#{$cfr} & {
+          @for $i from 1 through $cfr {
+            &--#{$i} {
+              $width: 100% / $cfr * $i;
+              width: $width;
+
+              @each $bp in $break-points {
+                @include bemit-break-point($bp) {
+                  width: $width;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @for $i from 1 through 4 {
+        #{$row}--gap-of-#{$i * $padding}px & {
+          padding-left: #{$i * $padding / 2}px;
+          padding-right: #{$i * $padding / 2}px;
+        }
+      }
+    }
+
+    @for $i from 1 through 4 {
+      #{$container}--gap-of-#{$i * $padding}px & {
+        padding-top: #{$i * $padding}px;
+        padding-bottom: #{$i * $padding}px;
+      }
+    }
+  }
+}

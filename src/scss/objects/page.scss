@@ -1,0 +1,36 @@
+.o-page {
+  top: #{$padding * 2}px;
+  left: #{$padding * 2}px;
+  right: #{$padding * 2}px;
+  bottom: #{$padding * 2}px;
+  width: calc(100% - #{$padding * 4}px);
+  height: calc(100% - #{$padding * 4}px);
+  position: absolute;
+  transition: transform #{$transition-time * 4};
+  transform-style: preserve-3d;
+  overflow: hidden;
+
+  background: $background;
+  border: 1px solid $primary;
+
+  &__face {
+    width: 100%;
+    // height: 100%;
+    backface-visibility: hidden;
+
+    &#{&}--front {
+      padding: #{$padding * 2}px;
+      background: $background;
+    }
+
+    &#{&}--back {
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      background: $background;
+      position: absolute;
+      transform: rotateY(180deg);
+    }
+  }
+}

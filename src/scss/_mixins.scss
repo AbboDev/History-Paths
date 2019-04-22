@@ -1,0 +1,34 @@
+//  */
+
+@mixin break-point($break, $range: null) {
+  @if ($range != null) {
+    @media (min-width: #{$break}px) and (max-width: #{$range}px) {
+      @content;
+    }
+  } @else {
+    @media (min-width: #{$break}px) {
+      @content;
+    }
+  }
+}
+
+@mixin bemit-break-point($bp, $class-name: null) {
+  @if ($class-name != null) {
+    @media (min-width: #{nth($bp, 2)}px) {
+      #{$class-name}\@#{nth($bp, 1)} {
+        @content;
+      }
+    }
+  } @else {
+    @media (min-width: #{nth($bp, 2)}px) {
+      &\@#{nth($bp, 1)} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin equal-heights() {
+  display:   flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,13 @@
+// /**
+//  *
+//  */
+
+.#{map-get($bemit, 'object')}footer {
+  $_footer: &;
+
+  @extend %full-block;
+
+  width: 100%;
+  height: if(map-has-key($footer, 'height'), #{map-get($footer, 'height')}px, 'auto');
+  padding: #{$padding}px #{$padding * 2}px;
+}
