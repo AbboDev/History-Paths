@@ -11,19 +11,12 @@
 </style>
 
 <template>
-  <div class="">
-    <header class="o-header">
-      <nav>
-        <router-link to="/">Go to Home</router-link>
-        <router-link to="/404">Go to 404</router-link>
-        <router-link to="/page/1">Go to Page #1</router-link>
-        <router-link to="/page/2">Go to Page #2</router-link>
-      </nav>
-    </header>
+  <div id="app">
+    <app-header />
 
     <main class="o-main">
       <transition name="fade" :duration="1000">
-        <router-view></router-view>
+        <router-view :key="$route.params.id"></router-view>
       </transition>
     </main>
   </div>
@@ -32,11 +25,16 @@
 <script>
   import '../scss/app.scss';
 
+  import AppHeader from './components/AppHeader.vue';
+
   export default {
     name: 'app',
     data: () => ({
       title: 'Lorem ipsum',
       subtitle: 'Lorem ipsum',
     }),
+    components: {
+      AppHeader
+    }
   };
 </script>
