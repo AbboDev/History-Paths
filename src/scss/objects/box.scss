@@ -15,18 +15,33 @@
     height: 100%;
   }
 
+  &__image {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &--fill {
+      background-size: cover;
+    }
+  }
+
   &--ratio {
     height: 0px;
     padding-top: 100%;
 
-    @each $arv in $aspect-ratio-values {
-      @if ($arv == $aspect-ratio-values-default) {
+    @each $v, $h in $aspect-ratio-values {
+      &#{&}-#{$v}-#{$h} {
+        padding-top: $h / $v * 100%;
+      }
 
+      &#{&}-#{$h}-#{$v} {
+        padding-top: $v / $h * 100%;
       }
     }
 
-    & > &__content {
-      @extend %fit-parent-absolute;
+    & > #{$box}__image,
+    & > #{$box}__content {
+      @include fit-parent-absolute();
     }
   }
 

@@ -1,7 +1,12 @@
 <template>
-  <div v-lazyload="'js-lazyload'" class="o-box o-box--ratio-16-9">
+  <div
+    v-lazyload="'js-lazyload'"
+    :class="[
+      'o-box',
+      ratio ? `o-box--ratio o-box--ratio-${ratio}` : ''
+    ]">
     <div
-      class="o-box__content js-lazyload"
+      class="o-box__image o-box__image--fill js-lazyload"
       :data-url="source"
     >
     </div>

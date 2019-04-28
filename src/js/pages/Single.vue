@@ -12,9 +12,9 @@
           <div class="o-container__row__column o-container__row__column--5@md">
             <h1>{{ post.title }}</h1>
             <lazy-load-image
-              :source="'https://via.placeholder.com/500x700.png/acbdba/1b2021?text=' + post.title"
+              :source="'https://via.placeholder.com/800x450.png/acbdba/1b2021?text=' + post.title"
               :alt="post.title"
-              :width="500"
+              :ratio="'16-9'"
             />
           </div>
           <div class="o-container__row__column o-container__row__column--7@md o-page__content">
