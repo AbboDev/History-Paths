@@ -4,11 +4,7 @@
       <div class="o-container o-container--padded">
         <div class="o-container__row u-text--center">
           <div class="o-container__row__column o-container__row__column--12">
-            <h1>Disaster History</h1>
-          </div>
-          <div class="o-container__row__column o-container__row__column--6">
-          </div>
-          <div class="o-container__row__column o-container__row__column--6">
+            <h1>History Paths</h1>
           </div>
         </div>
       </div>

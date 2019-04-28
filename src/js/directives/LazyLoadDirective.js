@@ -9,10 +9,15 @@ export default {
       );
       if (imageElement) {
         imageElement.addEventListener('load', () => {
-          setTimeout(() => el.classList.add('loaded'), 100);
+          setTimeout(() => {
+            el.classList.add('is-loaded');
+          }, 100);
         });
-        // eslint-disable-next-line no-console
-        imageElement.addEventListener('error', () => console.log('error'));
+        imageElement.addEventListener('error', () => {
+          // eslint-disable-next-line no-console
+          console.log('error');
+        });
+
         imageElement.src = imageElement.dataset.url;
       }
     }

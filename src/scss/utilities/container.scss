@@ -3,6 +3,8 @@
 //  */
 
 .#{map-get($bemit, 'utility')}container {
+  $_self: &;
+
   @for $i from 1 through $max-text-columns {
     &--columns-#{$i} {
       columns: $i;
@@ -31,5 +33,9 @@
     &#{&}--visible {
       overflow: scroll;
     }
+  }
+
+  &--full-height {
+    height: 100%;
   }
 }
