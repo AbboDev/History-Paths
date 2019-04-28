@@ -2,28 +2,38 @@
  *
  */
 export default {
-  inserted: el => {
+  inserted: (el, binding) => {
     function loadImage() {
       const imageElement = Array.from(el.children).find(
-        el => el.nodeName === 'IMG'
+        (el) => {
+          return (binding.value != '')
+            ? el.classList.contains(binding.value)
+            : el.nodeName === 'IMG';
+        }
       );
+
       if (imageElement) {
         imageElement.addEventListener('load', () => {
           setTimeout(() => {
             el.classList.add('is-loaded');
           }, 100);
         });
+
         imageElement.addEventListener('error', () => {
           // eslint-disable-next-line no-console
           console.log('error');
         });
 
-        imageElement.src = imageElement.dataset.url;
+        if (binding.value != '') {
+          imageElement.style.backgroundImage = `url("${imageElement.dataset.url}")`;
+        } else if (el.nodeName === 'IMG') {
+          imageElement.src = imageElement.dataset.url;
+        }
       }
     }
 
     function handleIntersect(entries, observer) {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           loadImage();
           observer.unobserve(el);

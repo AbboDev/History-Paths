@@ -1,15 +1,11 @@
 <template>
-  <figure v-lazyload class="image__wrapper">
-    <img
-      class="c-image__item"
+  <div v-lazyload="'js-lazyload'" class="o-box o-box--ratio-16-9">
+    <div
+      class="o-box__content js-lazyload"
       :data-url="source"
-      :alt="alt"
-      :style="{
-        width: (width ? width + 'px' : 'auto'),
-        height: (height ? height + 'px' : 'auto')
-      }"
     >
-  </figure>
+    </div>
+  </div>
 </template>
 
 <script type="text/javascript">
@@ -30,6 +26,10 @@ export default {
     },
     height: {
       type: Number,
+      required: false
+    },
+    ratio: {
+      type: String,
       required: false
     }
   }
