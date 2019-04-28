@@ -5,10 +5,7 @@
 import axios from 'axios';
 
 const HTTP = axios.create({
-  baseURL: 'http://jsonplaceholder.typicode.com/',
-  headers: {
-    Authorization: 'Bearer {token}'
-  }
+  baseURL: 'http://localhost:8000/api/',
 });
 
 export default HTTP;
