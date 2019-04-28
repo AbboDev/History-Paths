@@ -36,22 +36,16 @@
 </template>
 
 <script>
-  import LazyLoadImage from '../components/LazyLoadImage.vue';
+import LazyLoadImage from '../components/LazyLoadImage.vue';
 
-  export default {
-    name: 'single-page',
-    data: () => ({
-      title: 'Lorem ipsum',
-      subtitle: 'Lorem ipsum',
-    }),
-    components: {
-      LazyLoadImage
-    },
-    watch: {
-      '$route' (to, from) {
-        console.log(to);
-        console.log(from);
-      }
-    }
-  };
+export default {
+  name: 'single-page',
+  data: () => ({
+    title: 'Lorem ipsum',
+    subtitle: 'Lorem ipsum',
+  }),
+  components: {
+    LazyLoadImage
+  }
+};
 </script>

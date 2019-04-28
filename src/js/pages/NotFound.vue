@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'page-404'
-  };
+export default {
+  name: 'page-404'
+};
 </script>

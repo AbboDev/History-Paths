@@ -23,18 +23,18 @@
 </template>
 
 <script>
-  import '../scss/app.scss';
+import '../scss/app.scss';
 
-  import AppHeader from './components/AppHeader.vue';
+import AppHeader from './components/AppHeader.vue';
 
-  export default {
-    name: 'app',
-    data: () => ({
-      title: 'Lorem ipsum',
-      subtitle: 'Lorem ipsum',
-    }),
-    components: {
-      AppHeader
-    }
-  };
+export default {
+  name: 'app',
+  data: () => ({
+    title: 'Lorem ipsum',
+    subtitle: 'Lorem ipsum',
+  }),
+  components: {
+    AppHeader
+  }
+};
 </script>

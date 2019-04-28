@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const es6_promise = require('es6-promise');
 
 // const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
@@ -14,6 +15,8 @@ const plugins = [
   // }),
   new VueLoaderPlugin()
 ];
+
+es6_promise.polyfill();
 
 if (process.env.NODE_ENV === "production") {
   plugins.push(
@@ -54,7 +57,7 @@ const config = {
       },
       {
         enforce: "pre",
-        test: /\.js$/,
+        test: /\.(js|vue)$/,
         exclude: /node_modules/,
         loader: "eslint-loader"
       },

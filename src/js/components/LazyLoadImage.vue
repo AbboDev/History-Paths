@@ -14,7 +14,7 @@
 
 <script type="text/javascript">
 export default {
-  name: "LazyLoadImage",
+  name: 'LazyLoadImage',
   props: {
     source: {
       type: String,
